@@ -6,8 +6,7 @@ import styles from './UserComponent.module.css'
 
 /*
 Component used for rendering all the list items in the users list that is passed here
-as a prop. Will filter the users based on the key value of isActive.
-The text color of the list items will depend on the value it gets from props.
+as a prop. The text color of the list items will depend on the value it gets from props.
 */
 const UserComponent = props => {
   return (

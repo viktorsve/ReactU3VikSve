@@ -10,6 +10,10 @@ const UserScreen = props => {
   const [user, setUser] = useState({});
   const [visibility, setToggle] = useState(false);
 
+  /*
+  Runs every time our component is updated or mounted to the DOM and then sets our
+  user state to the value that is returned from the fetchUser method in props.
+  */
   useEffect(() => {
     props.fetchUser(props.match.params.user).then(setUser)
   }, [])
@@ -32,13 +36,13 @@ const UserScreen = props => {
   )
 }
 
-CardComponent.propTypes = {
+UserScreen.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       user: PropTypes.string.isRequired
     })
   }),
-  fetchUser: PropTypes.func
+  fetchUser: PropTypes.func.isRequired
 }
 
 export default withHTTPRequests(UserScreen);

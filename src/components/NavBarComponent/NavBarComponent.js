@@ -8,14 +8,14 @@ class NavBarComponent extends Component {
   // Lifecycle method that render our JSX code into the DOM
   render() {
     return (
-        <Nav>
-          <NavLink to="/login" className="navlink" style={{ textDecoration: "none" }}
-          activeClassName="active">Login</NavLink>
-          <NavLink to="/dashboard" className="navlink" style={{ textDecoration: "none" }}
-          activeClassName="active">Dashboard</NavLink>
-          <NavLink to="/user/" className="navlink" style={{ textDecoration: "none" }}
-          activeClassName="active">User</NavLink>
-        </Nav>
+      <Nav>
+        <NavLink to="/login" className="navlink" style={{ textDecoration: "none" }}
+        activeClassName="active">Login</NavLink>
+        <NavLink to="/dashboard" className="navlink" style={{ textDecoration: "none" }}
+        activeClassName="active">Dashboard</NavLink>
+        <NavLink to="/user/" className="navlink" style={{ textDecoration: "none" }}
+        activeClassName="active">User</NavLink>
+      </Nav>
     );
   }
 }

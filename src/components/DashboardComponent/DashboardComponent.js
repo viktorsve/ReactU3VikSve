@@ -9,8 +9,8 @@ import styles from './DashboardComponent.module.css';
 import withHTTPRequests from '../../HOCS/withHTTPRequests';
 
 /*
-Our main container component used for storing our list of users as a state that
-will be passed to our other components as props. Also handles the color state
+Our main container component used for handling our list of users that will be
+passed to our UserComponent as props. Also handles the color state
 which will toggle the color of our list items. The form that is rendered in this
 component will update the users list in state.
 */
@@ -29,8 +29,9 @@ class DashboardComponent extends Component {
   }
 
   /*
-  Prevents the default behavior of the element. Updates the users list in state
-  and adds a new user object to our list of users. Also resets value in state.
+  Prevents the default behavior of the element. Defines how our new user object
+  will look like and sends that user as argument to our postUser method in the HOC.
+  Also resets value in state.
   */
   addUser = event => {
     event.preventDefault()
@@ -72,6 +73,7 @@ class DashboardComponent extends Component {
     }))
   }
 
+  // Runs when the component is mounted to the DOM
   componentDidMount() {
     this.props.fetchUsers();
   }
@@ -103,6 +105,7 @@ class DashboardComponent extends Component {
 }
 
 DashboardComponent.propTypes = {
+  users: PropTypes.arrayOf(PropTypes.object).isRequired,
   postUser: PropTypes.func.isRequired,
   fetchUsers: PropTypes.func.isRequired
 }
