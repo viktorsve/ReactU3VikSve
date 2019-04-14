@@ -40,7 +40,7 @@ const withHTTPRequests = WrappedComponent => {
     Takes our user as a parameter and then makes a POST request to our backend
     with our parameter as the body data. The data type of the body has to match
     the content-type in our header, therefore we turn our user object into a JSON
-    string.
+    string. Also updates our state to trigger a re-render with our new user.
     */
     postUser = (user) => {
       fetch('http://api.softhouse.rocks/users', {
