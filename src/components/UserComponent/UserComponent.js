@@ -25,7 +25,6 @@ const UserComponent = props => {
 UserComponent.propTypes = {
   users: PropTypes.arrayOf(PropTypes.object),
   color: PropTypes.bool.isRequired,
-  toggleUsers: PropTypes.bool.isRequired
 }
 
 export default UserComponent;

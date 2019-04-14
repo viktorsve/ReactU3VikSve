@@ -6,18 +6,17 @@ import styles from './CardComponent.module.css';
 
 /*
 Component that is used as a wrapper for our cards. Will render everything placed
-inside this component as children and if showComponent is true it will also render
-a show info/hide info toggle button.
+inside this component as children.
 */
 class CardComponent extends Component {
   state = {
-    showComponent: false,
+    visbility: false,
   }
 
   // Updates the key value of showComponent to the opposite boolean value
-  showComponent = () => {
+  showInfo = () => {
     this.setState(prevState => ({
-      showComponent: !prevState.showComponent
+      visbility: !prevState.visbility
     }))
   }
 
@@ -27,11 +26,11 @@ class CardComponent extends Component {
       <Card className={styles.card}>
         <Card.Body>
           {this.props.children}
-          {this.state.showComponent ? (
+          {this.state.visbility ? (
             <p>You need to click on the button to login :)</p>
           ) : null}
           {this.props.info ? (
-            <Button className={styles.toggleinfo} onClick={this.showComponent} variant="info">{this.state.showComponent ? "Hide Info" : "Show Info"}</Button>
+            <Button className={styles.toggleinfo} onClick={this.showInfo} variant="info">{this.state.visbility ? "Hide Info" : "Show Info"}</Button>
           ) : null}
         </Card.Body>
       </Card>

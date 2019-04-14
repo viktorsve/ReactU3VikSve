@@ -11,14 +11,12 @@ import withHTTPRequests from '../../HOCS/withHTTPRequests';
 /*
 Our main container component used for handling our list of users that will be
 passed to our UserComponent as props. Also handles the color state
-which will toggle the color of our list items. The form that is rendered in this
-component will update the users list in state.
+which will toggle the color of our list items.
 */
 class DashboardComponent extends Component {
   state = {
     value: "",
     color: true,
-    toggleUsers: true
   }
 
   // Updates value state to the current value of the event object that is passed as an argument
@@ -66,13 +64,6 @@ class DashboardComponent extends Component {
     }))
   }
 
-  // Updates the key value of toggleUsers to the opposite boolean value
-  toggleUsers = () => {
-    this.setState(prevState => ({
-      toggleUsers: !prevState.toggleUsers
-    }))
-  }
-
   // Runs when the component is mounted to the DOM
   componentDidMount() {
     this.props.fetchUsers();
@@ -84,7 +75,7 @@ class DashboardComponent extends Component {
       <Fragment>
         <CardComponent>
           <ListGroup as="ul">
-            <UserComponent users={this.props.users} color={this.state.color} toggleUsers={this.state.toggleUsers}/>
+            <UserComponent users={this.props.users} color={this.state.color}/>
           </ListGroup>
           <Button variant="info" onClick={this.toggleColor} className={styles.togglecolor} block>Toggle Colors</Button>
         </CardComponent>
